@@ -74,11 +74,25 @@ class Pigmento:
     def _call(self, *args, _caller_name, _caller_class, **kwargs):
         prefixes = []
         if self._display_class_name and _caller_class:
-            caller_class_prefix = Prefix(_caller_class, self.CLASS_BRACKET, self.CLASS_COLOR)
+            name, bracket, color = _caller_class, self.CLASS_BRACKET, self.CLASS_COLOR
+            for plugin in self._plugins:
+                name, bracket, color = plugin.middleware_before_class_prefix(
+                    name=name,
+                    bracket=bracket,
+                    color=color,
+                )
+            caller_class_prefix = Prefix(name, bracket, color)
             prefixes.append(caller_class_prefix)
 
         if self._display_method_name:
-            caller_name_prefix = Prefix(_caller_name, self.METHOD_BRACKET, self.METHOD_COLOR)
+            name, bracket, color = _caller_name, self.METHOD_BRACKET, self.METHOD_COLOR
+            for plugin in self._plugins:
+                name, bracket, color = plugin.middleware_before_method_prefix(
+                    name=name,
+                    bracket=bracket,
+                    color=color,
+                )
+            caller_name_prefix = Prefix(name, bracket, color)
             prefixes.append(caller_name_prefix)
 
         prefixes = [*self._prefixes, *prefixes]

@@ -7,3 +7,9 @@ class BasePlugin:
 
     def middleware_before_print(self, prefixes, args, kwargs):
         return prefixes, args, kwargs
+
+    def middleware_before_class_prefix(self, name, bracket, color):
+        return name, bracket, color
+
+    def middleware_before_method_prefix(self, name, bracket, color):
+        return name, bracket, color
