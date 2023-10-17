@@ -1,1 +1,1 @@
-# PRINTI: Colorful Printing
+# Pigmento: Colorful Printing

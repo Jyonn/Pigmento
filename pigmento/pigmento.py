@@ -7,7 +7,7 @@ from .utils.color import Color
 from .utils.prefix import Prefix
 
 
-class Printi:
+class Pigmento:
     METHOD_BRACKET = Bracket.METHOD
     METHOD_COLOR = Color.CYAN
 

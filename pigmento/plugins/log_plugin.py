@@ -1,4 +1,4 @@
-from printi.plugins.base_plugin import BasePlugin
+from pigmento.plugins.base_plugin import BasePlugin
 
 
 class LogPlugin(BasePlugin):
