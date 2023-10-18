@@ -2,6 +2,8 @@
 
 ![Pigmento](https://liu.qijiong.work/images/covers/pigmento.png)
 
+**Due to the limitation of Github and Pypi Markdown, please visit [Pigmento](https://liu.qijiong.work/2023/10/18/Develop-Pigmento/) for a better reading experience.** 
+
 ## Installation
 
 ```bash
