@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding='utf8')
 
 setup(
     name='pigmento',
-    version='0.0.6',
+    version='0.1.0',
     keywords=['print', 'color'],
     description='Colorful and Prefix-supported Print Toolkit',
     long_description=long_description,

@@ -1,37 +1,6 @@
 # Pigmento: Colorize and Trace Printing
 
-<style>
-span.red {
-    color: #FF6B6B;
-}
-
-span.green {
-    color: #9EE09E;
-}
-
-span.yellow {
-    color: #FFE156;
-}
-
-span.blue {
-    color: #6B9BFF;
-}
-
-span.magenta {
-    color: #E27DEA;
-}
-
-span.cyan {
-    color: #6BE7E7;
-}
-</style>
-
 ![Pigmento](https://liu.qijiong.work/images/covers/pigmento.png)
-
-## Introduction
-
-Pigmento is a Python package that can colorize and trace printing. It can be used to quickly locate the source of the print statement.
-Moreover, it supports customizing the style of printing, prefixes, and powerful plugins.
 
 ## Installation
 
@@ -67,10 +36,10 @@ global_function()
 ```
 
 <pre>
-<span class="magenta">|Test|</span> <span class="cyan">(class_method)</span> Hello World
-<span class="magenta">|Test|</span> <span class="cyan">(instance_method)</span> Hello World
-<span class="magenta">|Test|</span> <span class="cyan">(static_method)</span> Hello World
-<span class="cyan">(global_function)</span> Hello World
+<span style="color: #E27DEA;">|Test|</span> <span style="color: #6BE7E7;">(class_method)</span> Hello World
+<span style="color: #E27DEA;">|Test|</span> <span style="color: #6BE7E7;">(instance_method)</span> Hello World
+<span style="color: #E27DEA;">|Test|</span> <span style="color: #6BE7E7;">(static_method)</span> Hello World
+<span style="color: #6BE7E7;">(global_function)</span> Hello World
 </pre>
 
 ### Style Customization
@@ -91,9 +60,9 @@ Test.static_method()
 ```
 
 <pre>
-<span class="blue">[Test]</span> <span class="red">&lt;class_method&gt;</span> Hello World
-<span class="blue">[Test]</span> <span class="red">&lt;instance_method&gt;</span> Hello World
-<span class="blue">[Test]</span> <span class="red">&lt;static_method&gt;</span> Hello World
+<span style="color: #6B9BFF;">[Test]</span> <span style="color: #FF6B6B;">&lt;class_method&gt;</span> Hello World
+<span style="color: #6B9BFF;">[Test]</span> <span style="color: #FF6B6B;">&lt;instance_method&gt;</span> Hello World
+<span style="color: #6B9BFF;">[Test]</span> <span style="color: #FF6B6B;">&lt;static_method&gt;</span> Hello World
 </pre>
 
 ### Display Mode Customization
@@ -109,7 +78,7 @@ Test.class_method()
 ```
 
 <pre>
-<span class="magenta">|Test|</span> Hello World
+<span style="color: #E27DEA;">|Test|</span> Hello World
 </pre>
 
 ## Prefixes
@@ -126,7 +95,7 @@ global_function()
 ```
 
 <pre>
-<span class="green">[DEBUG]</span> <span class="cyan">(global_function)</span> Hello World
+<span style="color: #9EE09E;">[DEBUG]</span> <span style="color: #6BE7E7;">(global_function)</span> Hello World
 </pre>
 
 ### Dynamic Prefix
@@ -152,8 +121,8 @@ global_function()
 ```
 
 <pre>
-<span class="green">[TRAINING]</span> <span class="cyan">(global_function)</span> Hello World
-<span class="green">[TESTING]</span> <span class="cyan">(global_function)</span> Hello World
+<span style="color: #9EE09E;">[TRAINING]</span> <span style="color: #6BE7E7;">(global_function)</span> Hello World
+<span style="color: #9EE09E;">[TESTING]</span> <span style="color: #6BE7E7;">(global_function)</span> Hello World
 </pre>
 
 ### Build-in Time Prefix
@@ -173,8 +142,8 @@ Test.class_method()
 ```
 
 <pre>
-<span class="green">[00:00:00]</span> <span class="magenta">|Test|</span> <span class="cyan">(class_method)</span> Hello World
-<span class="green">[00:00:01]</span> <span class="magenta">|Test|</span> <span class="cyan">(class_method)</span> Hello World
+<span style="color: #9EE09E;">[00:00:00]</span> <span style="color: #E27DEA;">|Test|</span> <span style="color: #6BE7E7;">(class_method)</span> Hello World
+<span style="color: #9EE09E;">[00:00:01]</span> <span style="color: #E27DEA;">|Test|</span> <span style="color: #6BE7E7;">(class_method)</span> Hello World
 </pre>
 
 ## Plugins
@@ -195,7 +164,7 @@ global_function()
 ```
 
 <pre>
-<span class="cyan">(global_function)</span> Hello World
+<span style="color: #6BE7E7;">(global_function)</span> Hello World
 </pre>
 
 The log file will be created in the current working directory and the content will be removed the color codes.
@@ -247,12 +216,12 @@ D().print()
 ```
 
 <pre>
-<span class="magenta">|A|</span> <span class="cyan">(print)</span> Hello from A
-<span class="magenta">|B|</span> <span class="cyan">(print)</span> Hello from B
-<span class="magenta">|D|</span> <span class="cyan">(print)</span> Hello from C
-<span class="magenta">|A|</span> <span class="cyan">(print)</span> Hello from A
-<span class="red">|B|</span> <span class="cyan">(print)</span> Hello from B
-<span class="yellow">|D|</span> <span class="cyan">(print)</span> Hello from C
+<span style="color: #E27DEA;">|A|</span> <span style="color: #6BE7E7;">(print)</span> Hello from A
+<span style="color: #E27DEA;">|B|</span> <span style="color: #6BE7E7;">(print)</span> Hello from B
+<span style="color: #E27DEA;">|D|</span> <span style="color: #6BE7E7;">(print)</span> Hello from C
+<span style="color: #E27DEA;">|A|</span> <span style="color: #6BE7E7;">(print)</span> Hello from A
+<span style="color: #FF6B6B;">|B|</span> <span style="color: #6BE7E7;">(print)</span> Hello from B
+<span style="color: #FFE156;">|D|</span> <span style="color: #6BE7E7;">(print)</span> Hello from C
 </pre>
 
 ### Plugin Customization
@@ -277,9 +246,9 @@ Test.static_method()
 ```
 
 <pre>
-<span class="magenta">|test|</span> <span class="cyan">(class-method)</span> Hello World
-<span class="magenta">|test|</span> <span class="cyan">(instance-method)</span> Hello World
-<span class="magenta">|test|</span> <span class="cyan">(static-method)</span> Hello World
+<span style="color: #E27DEA;">|test|</span> <span style="color: #6BE7E7;">(class-method)</span> Hello World
+<span style="color: #E27DEA;">|test|</span> <span style="color: #6BE7E7;">(instance-method)</span> Hello World
+<span style="color: #E27DEA;">|test|</span> <span style="color: #6BE7E7;">(static-method)</span> Hello World
 </pre>
 
 
@@ -318,9 +287,9 @@ divide('x', 'y')
 ```
 
 <pre>
-<span class="blue">[INFO]</span> <span class="cyan">(divide)</span> 1 / 2 = 0.5
-<span class="green">[DEBUG]</span> <span class="cyan">(divide)</span> Cannot divide by zero
-<span class="red">[ERROR]</span> <span class="cyan">(divide)</span> Inputs must be integers
+<span style="color: #6B9BFF;">[INFO]</span> <span style="color: #6BE7E7;">(divide)</span> 1 / 2 = 0.5
+<span style="color: #9EE09E;">[DEBUG]</span> <span style="color: #6BE7E7;">(divide)</span> Cannot divide by zero
+<span style="color: #FF6B6B;">[ERROR]</span> <span style="color: #6BE7E7;">(divide)</span> Inputs must be integers
 </pre>
 
 ## License
