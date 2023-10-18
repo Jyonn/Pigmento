@@ -2,7 +2,7 @@
 
 **Due to the limitation of Github and Pypi Markdown, please visit [Pigmento](https://liu.qijiong.work/2023/10/18/Develop-Pigmento/) for a better reading experience.**
 
-![Pigmento](https://liu.qijiong.work/images/covers/pigmento.png)
+![Pigmento](https://liu.qijiong.work/images/covers/pigmento.png?t=20231018)
 
 ## Installation
 
