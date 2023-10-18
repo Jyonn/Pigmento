@@ -26,16 +26,18 @@ span.cyan {
 }
 </style>
 
-![Pigmento](pigmento.png)
+![Pigmento](https://liu.qijiong.work/images/covers/pigmento.png)
 
+## Introduction
 
-# Installation
+Pigmento is a Python package that can colorize and trace printing. It can be used to quickly locate the source of the print statement.
+Moreover, it supports customizing the style of printing, prefixes, and powerful plugins.
+
+## Installation
 
 ```bash
 pip install pigmento
 ```
-
-# Usage
 
 ## Quick Start
 
