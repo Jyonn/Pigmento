@@ -253,6 +253,34 @@ Test.static_method()
 <span style="color: #E27DEA;">|test|</span> <span style="color: #6BE7E7;">(static-method)</span> Hello World
 </pre>
 
+## Basic Printer Customization
+
+```python
+import sys
+import time
+
+from pigmento import pnt
+
+
+def flush_printer(prefix_s, prefix_s_with_color, text, **kwargs):
+    sys.stdout.write(f'\r{prefix_s_with_color} {text}')
+    sys.stdout.flush()
+
+
+pnt.set_basic_printer(flush_printer)
+
+def progress(total):
+    for i in range(total):
+        time.sleep(0.1)  # 模拟工作
+        bar = f"Progress: |{'#' * (i + 1)}{'-' * (total - i - 1)}| {i + 1}/{total}"
+        pnt(bar)
+
+progress(30)
+```
+
+<pre>
+(progress) Progress: |#############-----------------| 13/30
+</pre>
 
 ## Multiple Printers
 

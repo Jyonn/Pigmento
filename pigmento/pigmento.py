@@ -21,6 +21,8 @@ class Pigmento:
         self._display_method_name = True
         self._display_class_name = True
 
+        self._basic_printer = self._get_basic_printer()
+
     def add_prefix(self, prefix: Prefix):
         self._prefixes.append(prefix)
 
@@ -33,6 +35,15 @@ class Pigmento:
             self._display_method_name = display_method_name
         if display_class_name is not None:
             self._display_class_name = display_class_name
+
+    @staticmethod
+    def _get_basic_printer():
+        def basic_printer(prefixes, prefix_s, prefix_s_with_color, text, **kwargs):
+            print(prefix_s_with_color, text, **kwargs)
+        return basic_printer
+
+    def set_basic_printer(self, printer):
+        self._basic_printer = printer
 
     def set_display_style(
             self,
@@ -108,7 +119,13 @@ class Pigmento:
         prefix_s_with_color = ' '.join([prefix.with_color() for prefix in prefixes])
         text = ' '.join([str(arg) for arg in args])
 
-        print(prefix_s_with_color, text, **kwargs)
+        # print(prefix_s_with_color, text, **kwargs)
+        self._basic_printer(
+            prefixes=prefixes,
+            prefix_s=prefix_s,
+            prefix_s_with_color=prefix_s_with_color,
+            text=text
+        )
 
         for plugin in self._plugins:
             plugin.middleware_after_print(
