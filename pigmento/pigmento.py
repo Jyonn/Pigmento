@@ -20,6 +20,7 @@ class Pigmento:
 
         self._display_method_name = True
         self._display_class_name = True
+        self._use_instance_class = False
 
         self._basic_printer = self._get_basic_printer()
 
@@ -30,11 +31,18 @@ class Pigmento:
         plugin.init(self)
         self._plugins.append(plugin)
 
-    def set_display_mode(self, display_method_name: bool = None, display_class_name: bool = None):
+    def set_display_mode(
+            self,
+            display_method_name: bool = None,
+            display_class_name: bool = None,
+            use_instance_class: bool = None
+    ):
         if display_method_name is not None:
             self._display_method_name = display_method_name
         if display_class_name is not None:
             self._display_class_name = display_class_name
+        if use_instance_class is not None:
+            self._use_instance_class = use_instance_class
 
     @staticmethod
     def _get_basic_printer():
@@ -80,6 +88,12 @@ class Pigmento:
             inspected_info = (caller_name, None)
 
         caller_name, caller_class = inspected_info
+
+        if self._use_instance_class:
+            caller_instance = caller_frame.frame.f_locals.get('self', None)
+            if caller_instance:
+                caller_class = type(caller_instance).__name__
+
         return self._call(*args, _caller_name=caller_name, _caller_class=caller_class, **kwargs)
 
     def _call(self, *args, _caller_name, _caller_class, **kwargs):
@@ -124,7 +138,8 @@ class Pigmento:
             prefixes=prefixes,
             prefix_s=prefix_s,
             prefix_s_with_color=prefix_s_with_color,
-            text=text
+            text=text,
+            **kwargs
         )
 
         for plugin in self._plugins:
